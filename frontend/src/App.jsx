@@ -22,7 +22,7 @@ const API_BASE_URL =
   import.meta.env.VITE_API_BASE_URL || "https://sisimaecom.onrender.com";
 
 export default function App() {
-  const [piroducts, setProducts] = useState([]);
+  const [products, setProducts] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState("");
   const [search, setSearch] = useState("");
