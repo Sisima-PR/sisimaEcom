@@ -17,6 +17,10 @@ import {
   getDisplayPrice,
   sortProducts,
 } from "./utils/productHelpers";
+
+const API_BASE_URL =
+  import.meta.env.VITE_API_BASE_URL || "https://sisimaecom.onrender.com";
+
 export default function App() {
   const [piroducts, setProducts] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -37,7 +41,7 @@ export default function App() {
     setError("");
 
     try {
-      const response = await fetch("/api/products");
+      const response = await fetch(`${API_BASE_URL}/api/products`);
       if (!response.ok) {
         throw new Error("Unable to load products");
       }
@@ -108,7 +112,7 @@ export default function App() {
 
   const handleAddProduct = async (productData) => {
     try {
-      const response = await fetch("/api/products", {
+      const response = await fetch(`${API_BASE_URL}/api/products`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -132,7 +136,7 @@ export default function App() {
 
   const handleEditProduct = async (id, productData) => {
     try {
-      const response = await fetch(`/api/products/${id}`, {
+      const response = await fetch(`${API_BASE_URL}/api/products/${id}`, {
         method: "PUT",
         headers: {
           "Content-Type": "application/json",
@@ -160,7 +164,7 @@ export default function App() {
 
   const handleDeleteProduct = async (id) => {
     try {
-      const response = await fetch(`/api/products/${id}`, {
+      const response = await fetch(`${API_BASE_URL}/api/products/${id}`, {
         method: "DELETE",
       });
 
