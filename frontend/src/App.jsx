@@ -17,9 +17,8 @@ import {
   getDisplayPrice,
   sortProducts,
 } from "./utils/productHelpers";
-
 export default function App() {
-  const [products, setProducts] = useState([]);
+  const [piroducts, setProducts] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState("");
   const [search, setSearch] = useState("");
